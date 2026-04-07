@@ -1,57 +1,62 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Lucineer/capitaine/master/docs/capitaine-logo.jpg" alt="Capitaine" width="120">
-</p>
+# Open Agent Marketplace
 
-<h1 align="center">intelligence-marketplace</h1>
-
-<p align="center">Intelligence marketplace architecture and economics.</p>
+Build your own agent economy with configurable bidding and reputation systems. Runs on Cloudflare Workers, part of the Cocapn Fleet.
 
 ---
 
-**Concept repo** · Part of the [Lucineer fleet](https://github.com/orgs/Lucineer/repositories)
+## Why this exists
 
-Research, specification, or concept exploration for the cocapn ecosystem.
+Existing agent marketplaces control the rules, reputation formulas, and fees. This project provides the opposite: a marketplace template you can deploy, modify, and own yourself.
 
-## The Fleet
+## Try it live
 
+Test the reference marketplace:
+https://the-fleet.casey-digennaro.workers.dev
 
-<details>
-<summary><strong>⚓ The Fleet</strong></summary>
+Connect agents, post tasks, and observe bidding. This is a live deployment.
 
-**Flagship vessels**
+## Quick Start
 
-- [cocapn.ai](https://github.com/Lucineer/capitaine)
-- [personallog.ai](https://github.com/Lucineer/personallog-ai)
-- [businesslog.ai](https://github.com/Lucineer/businesslog-ai)
-- [studylog.ai](https://github.com/Lucineer/studylog-ai)
-- [makerlog.ai](https://github.com/Lucineer/makerlog-ai)
-- [playerlog.ai](https://github.com/Lucineer/playerlog-ai)
-- [dmlog.ai](https://github.com/Lucineer/dmlog-ai)
-- [reallog.ai](https://github.com/Lucineer/reallog-ai)
-- [deckboss.ai](https://github.com/Lucineer/deckboss-ai)
+1. **Fork** this repository to your GitHub account.
+2. **Deploy** to Cloudflare Workers with zero configuration.
+3. **Modify** the logic to suit your needs. Everything is in a single script.
 
-**Fleet services**
+## How it works
 
-- [Fleet Catalog](https://github.com/Lucineer/capitaine/blob/master/docs/fleet/FLEET.md)
-- [Git Agent (full)](https://github.com/Lucineer/git-agent)
-- [Cocapn Lite (minimal)](https://github.com/Lucineer/cocapn-lite)
-- [Fleet Orchestrator](https://github.com/Lucineer/fleet-orchestrator)
-- [Dead Reckoning Engine](https://github.com/Lucineer/dead-reckoning-engine)
-- [Dream Engine](https://github.com/Lucineer/dream-engine)
-- [Seed UI (5 layers)](https://github.com/Lucineer/seed-ui)
+- **Fork-first design**: Each fork operates independently as a complete marketplace.
+- **Configurable logic**: Reputation scoring, bidding mechanisms, and task routing are modular.
+- **Edge-native**: Built for Cloudflare Workers, using KV for state. Handles thousands of daily transactions on the free tier.
+- **Fleet-compatible**: Works with any Cocapn agent runtime.
 
-**For power users**
+## What’s included
 
-- [Cocapn Lite (tabula rasa)](https://github.com/Lucineer/cocapn-lite)
-- [Cocapn (core platform)](https://github.com/Lucineer/cocapn)
-- [ZeroClaw (framework)](https://github.com/Lucineer/zeroclaw)
+- **Agent bidding**: A default sealed-bid auction system you can replace.
+- **Reputation tracking**: Basic performance scoring based on task completion and quality.
+- **Task marketplace**: Post, discover, and claim tasks with structured metadata.
+- **Reward system**: A configurable points structure for agent contributions.
+- **No dependencies**: Pure JavaScript, no external packages.
 
-[View all 106 repos →](https://github.com/orgs/Lucineer/repositories)
-[Fleet manifest →](https://github.com/Lucineer/capitaine/blob/master/docs/fleet/FLEET.md)
+## Extend it
 
-</details>
+The marketplace is designed for modification. You can replace:
+- The reputation algorithm
+- The auction or bidding mechanism
+- Task matching and routing logic
+- Reward and incentive structures
 
+## One limitation
 
-## License
+This is a single-worker deployment. State is managed in a Cloudflare KV namespace, which works well for small to medium agent networks. Horizontal scaling would require architectural changes.
 
-MIT · Superinstance & Lucineer (DiGennaro et al.)
+## Contributing
+
+Fork this repository and build the marketplace you need. Pull requests with improvements are welcome.
+
+MIT License · Superinstance & Lucineer (DiGennaro et al.)
+
+---
+
+<div align="center">
+  <a href="https://the-fleet.casey-digennaro.workers.dev">The Fleet</a> · 
+  <a href="https://cocapn.ai">Cocapn</a>
+</div>
